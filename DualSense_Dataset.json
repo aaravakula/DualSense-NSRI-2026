@@ -1,0 +1,136 @@
+{
+  "simulation_parameters": {
+    "n_patients": 2000,
+    "infection_prevalence": 0.5,
+    "ph_infection_threshold": 7.0,
+    "ua_alert_threshold": 400,
+    "random_seed": 42
+  },
+  "population": {
+    "n_infected": 1013,
+    "n_not_infected": 987
+  },
+  "sensor_performance_literature": {
+    "clinical_visual": {
+      "sensitivity": 0.52,
+      "specificity": 0.46,
+      "detection_min": null
+    },
+    "wound_swab_culture": {
+      "sensitivity": 0.63,
+      "specificity": 0.71,
+      "detection_min": 1440
+    },
+    "pH_colorimetric": {
+      "sensitivity": 0.68,
+      "specificity": 0.71,
+      "detection_min": 15
+    },
+    "pH_electrochemical": {
+      "sensitivity": 0.78,
+      "specificity": 0.84,
+      "detection_min": 3
+    },
+    "uric_acid": {
+      "sensitivity": 0.72,
+      "specificity": 0.88,
+      "detection_min": 8
+    },
+    "temperature": {
+      "sensitivity": 0.65,
+      "specificity": 0.6,
+      "detection_min": 1
+    },
+    "DualSense_AND_logic": {
+      "sensitivity": 0.91,
+      "specificity": 0.89,
+      "detection_min": 10
+    }
+  },
+  "simulation_results": {
+    "pH sensor only (AND-logic)": {
+      "sensitivity": 0.9595,
+      "specificity": 0.9605,
+      "PPV": 0.9614,
+      "NPV": 0.9585,
+      "F1_score": 0.9605,
+      "TP": 972,
+      "FP": 39,
+      "TN": 948,
+      "FN": 41
+    },
+    "Uric acid sensor only": {
+      "sensitivity": 0.9941,
+      "specificity": 0.9949,
+      "PPV": 0.9951,
+      "NPV": 0.9939,
+      "F1_score": 0.9946,
+      "TP": 1007,
+      "FP": 5,
+      "TN": 982,
+      "FN": 6
+    },
+    "DualSense AND-logic (proposed)": {
+      "sensitivity": 0.9536,
+      "specificity": 1.0,
+      "PPV": 1.0,
+      "NPV": 0.9545,
+      "F1_score": 0.9763,
+      "TP": 966,
+      "FP": 0,
+      "TN": 987,
+      "FN": 47
+    },
+    "DualSense OR-logic (baseline)": {
+      "sensitivity": 1.0,
+      "specificity": 0.9554,
+      "PPV": 0.9584,
+      "NPV": 1.0,
+      "F1_score": 0.9787,
+      "TP": 1013,
+      "FP": 44,
+      "TN": 943,
+      "FN": 0
+    }
+  },
+  "decision_matrix": {
+    "matrix": [
+      [
+        0.03,
+        0.08,
+        0.22,
+        0.35
+      ],
+      [
+        0.07,
+        0.18,
+        0.45,
+        0.6
+      ],
+      [
+        0.2,
+        0.42,
+        0.78,
+        0.91
+      ],
+      [
+        0.32,
+        0.58,
+        0.91,
+        0.97
+      ]
+    ],
+    "ph_labels": [
+      "pH < 6.0",
+      "pH 6.0-7.0",
+      "pH > 7.0",
+      "pH > 8.0"
+    ],
+    "ua_labels": [
+      "UA < 200",
+      "UA 200-400",
+      "UA > 400",
+      "UA > 600"
+    ]
+  }
+}
